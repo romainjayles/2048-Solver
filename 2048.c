@@ -21,7 +21,7 @@ void free_grid(struct grid* grid){
   free(grid);
 }
 
-int move_left(struct grid *base_grid, struct grid *result_grid){
+bool move_left(struct grid *base_grid, struct grid *result_grid){
   memcpy(result_grid, base_grid, sizeof(struct grid));
   int *grid = result_grid->grid;
   result_grid->blocked_left = true;
@@ -56,9 +56,10 @@ int move_left(struct grid *base_grid, struct grid *result_grid){
       }
     }
   }
+  return !result_grid->blocked_left;
 }
 
-int move_right(struct grid *base_grid, struct grid *result_grid){
+bool move_right(struct grid *base_grid, struct grid *result_grid){
   memcpy(result_grid, base_grid, sizeof(struct grid));
   int *grid = result_grid->grid;
   result_grid->blocked_right = true;
@@ -93,9 +94,10 @@ int move_right(struct grid *base_grid, struct grid *result_grid){
       }
     }
   }
+  return !result_grid->blocked_right;
 }
 
-int move_up(struct grid *base_grid, struct grid *result_grid){
+bool move_up(struct grid *base_grid, struct grid *result_grid){
   memcpy(result_grid, base_grid, sizeof(struct grid));
   int *grid = result_grid->grid;
   result_grid->blocked_up = true;
@@ -130,10 +132,11 @@ int move_up(struct grid *base_grid, struct grid *result_grid){
       }
     }
   }
+  return !result_grid->blocked_up;
 }
 
-int move_down(struct grid *base_grid, struct grid *result_grid){
-    memcpy(result_grid, base_grid, sizeof(struct grid));
+bool move_down(struct grid *base_grid, struct grid *result_grid){
+  memcpy(result_grid, base_grid, sizeof(struct grid));
   int *grid = result_grid->grid;
   result_grid->blocked_down = true;
   int i,j, k, current_cell;
@@ -167,6 +170,7 @@ int move_down(struct grid *base_grid, struct grid *result_grid){
       }
     }
   }
+  return !result_grid->blocked_down;
 }
 
 void put_random_tile(struct grid* base_grid, struct grid *result_grid){
