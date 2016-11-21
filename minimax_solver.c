@@ -12,10 +12,8 @@ move_type compute_best_move(struct grid* grid, int depth){
   //return move ?
   struct node root;
   root.grid = *grid;
-  float max_value = -1;
-  int i;
-  
-  max_value = compute_best_move_play(&root, depth);
+
+  compute_best_move_play(&root, depth);
   return root.best_move;
 }
 
@@ -23,6 +21,7 @@ float compute_best_move_play(struct node* node, int depth){
   // We have to compute the heuristic
   struct grid *base_grid = &(node->grid);
   float max_value = -1, prev_max_value = -1;
+  float computed_value;
   int i;
   int max_i;
   
@@ -38,11 +37,17 @@ float compute_best_move_play(struct node* node, int depth){
 
   for(int i=0; i<4; i++){
     if(node->node_child[i].possible){
-      max_value = MAX(compute_best_move_put_tile(&node->node_child[0], depth-1), max_value);
+      computed_value = MAX(compute_best_move_put_tile(&node->node_child[0], depth-1), max_value);
+    }else{
+      computed_value = -1;
     }
-    if(prev_max_value != max_value){
+    prev_max_value = max_value;
+    max_value = MAX(max_value, computed_value);
+    if(prev_max_value < max_value){
       max_i = i;
     }
+    //if(depth == 4)
+    //printf("%i - %f\n", i, MAX(compute_best_move_put_tile(&node->node_child[0], depth-1), max_value));
   }
   node->value = max_value;
   switch(max_i){

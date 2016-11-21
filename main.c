@@ -41,7 +41,7 @@ int main(int argc, char **argv){
       break;
     }
     #else
-    move = compute_best_move(&main_grid, 4);
+    move = compute_best_move(&main_grid, 5);
     #endif
     switch(move){
     case MOVE_LEFT:
