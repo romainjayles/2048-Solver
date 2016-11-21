@@ -174,7 +174,7 @@ int move_down(struct grid *base_grid, struct grid *result_grid){
 }
 
 void put_random_tile(struct grid* base_grid, struct grid *result_grid){
-  int i, empty_tile_cnt, tile_to_put = 0;
+  int i, empty_tile_cnt = 0, tile_to_put = 0;
   int *grid_array = base_grid->grid;
   for(i=0; i<16; i++){
     if(grid_array[i] == 0){
