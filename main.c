@@ -6,7 +6,7 @@
 #include "2048.h"
 #include "minimax_solver.h"
 
-#define INTERACTIVE
+//#define INTERACTIVE
 
 int main(int argc, char **argv){
   char ch1, ch2, ch3;

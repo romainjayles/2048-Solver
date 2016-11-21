@@ -202,9 +202,10 @@ int count_free_tile(struct grid *base_grid){
 }
 
 void print_grid(struct grid *grid, bool print_state){
+  int i,j;
   printf("--------------------\n");
-  for(int j=0; j<4; j++){
-    for(int i=0; i<4;i++){
+  for(j=0; j<4; j++){
+    for(i=0; i<4;i++){
       printf("%i    ", grid->grid[i+j*4]);
     }
     printf("\n\n");
