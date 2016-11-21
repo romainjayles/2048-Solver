@@ -65,7 +65,6 @@ int main(int argc, char **argv){
       break;
     }
     
-    move_down(&main_grid, &main_grid);
     put_random_tile(&main_grid, &main_grid);
     print_grid(&main_grid, false);
   }
