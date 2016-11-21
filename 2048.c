@@ -79,7 +79,7 @@ bool move_right(struct grid *base_grid, struct grid *result_grid){
 		grid[k+1+j*4] = grid[k+j*4];
 	      }
 	      grid[0+j*4] = 0;
-	      result_grid->blocked_right = true;
+	      result_grid->blocked_right = false;
 	    }
 	  }else{
 	    for(k = i; k >= 0; k--){
@@ -155,7 +155,7 @@ bool move_down(struct grid *base_grid, struct grid *result_grid){
 		grid[i+(k+1)*4] = grid[i+(k)*4];
 	      }
 	      grid[i+0*4] = 0;
-	      result_grid->blocked_down = true;
+	      result_grid->blocked_down = false;
 	    }
 	  }else{
 	    for(k = j; k >= 0; k--){
