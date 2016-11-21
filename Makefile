@@ -7,3 +7,5 @@ DEPS = 2048.h
 
 main: main.o 2048.o
 	$(CC) -o main main.o 2048.o -I.
+clean:
+	rm main *.o *~
