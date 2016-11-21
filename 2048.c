@@ -199,8 +199,8 @@ void print_grid(struct grid *grid, bool print_state){
     }
     printf("\n\n");
   }
-  printf("\n");
   if(print_state){
+    printf("\n");
     printf("Grid is %s\n", grid->blocked_left ? " blocked left": " free left");
     printf("Grid is %s\n", grid->blocked_right ? " blocked right": " free right");
     printf("Grid is %s\n", grid->blocked_up ? " blocked up": " free up");
