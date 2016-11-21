@@ -30,4 +30,6 @@ void print_grid(struct grid *grid, bool print_state);
 
 void put_random_tile(struct grid* base_grid, struct grid *result_grid);
 
+int count_free_tile(struct grid *base_grid);
+
 #endif

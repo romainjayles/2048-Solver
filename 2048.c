@@ -191,6 +191,16 @@ void put_random_tile(struct grid* base_grid, struct grid *result_grid){
   }
 }
 
+int count_free_tile(struct grid *base_grid){
+  int count = 0, i;
+  int *grid_array = base_grid->grid;
+  for(i=0; i<16; i++){
+    if(grid_array[i] == 0)
+      count++;
+  }
+  return count;
+}
+
 void print_grid(struct grid *grid, bool print_state){
   printf("--------------------\n");
   for(int j=0; j<4; j++){
