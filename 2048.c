@@ -41,7 +41,6 @@ int move_left(struct grid *base_grid, struct grid *result_grid){
 		grid[k-1+j*4] = grid[k+j*4];
 	      }
 	      grid[3+j*4] = 0;
-	      i++;
 	      result_grid->blocked_left = false;
 	    }
 	  }else{
@@ -79,7 +78,6 @@ int move_right(struct grid *base_grid, struct grid *result_grid){
 		grid[k+1+j*4] = grid[k+j*4];
 	      }
 	      grid[0+j*4] = 0;
-	      i--;
 	      result_grid->blocked_right = true;
 	    }
 	  }else{
@@ -117,7 +115,6 @@ int move_up(struct grid *base_grid, struct grid *result_grid){
 		grid[i+(k-1)*4] = grid[i+k*4];
 	      }
 	      grid[i+3*4] = 0;
-	      j++;
 	      result_grid->blocked_up = false;
 	    }
 	  }else{
@@ -155,7 +152,6 @@ int move_down(struct grid *base_grid, struct grid *result_grid){
 		grid[i+(k+1)*4] = grid[i+(k)*4];
 	      }
 	      grid[i+0*4] = 0;
-	      j--;
 	      result_grid->blocked_down = true;
 	    }
 	  }else{
