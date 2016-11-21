@@ -13,6 +13,7 @@
 int main(int argc, char **argv){
   int interactive = INTERACTIVE;
   int i;
+  char ch1, ch2, ch3;
   struct grid main_grid;
   struct grid move_grid;
   init_grid(&main_grid);
@@ -38,7 +39,32 @@ int main(int argc, char **argv){
   put_random_tile(&main_grid, &main_grid);
   print_grid(&main_grid, false);
   while(1){
-    scanf(" %i", &i);
+    do{
+      ch3 = ch2;
+      ch2 = ch1;
+      ch1 = fgetc(stdin);
+      //printf("\n%i - %i - %i \n", ch3, ch2, ch1);
+    }while (!(ch3 == 27 && ch2== 91 && (ch1 == 68 || ch1 == 67 || ch1 == 66 | ch1 == 65)));
+    clearerr(stdin);
+    switch(ch1){
+    case 68:
+      printf("Left\n");
+      move_left(&main_grid, &main_grid);
+      break;
+    case 67:
+      printf("Right\n");
+      move_right(&main_grid, &main_grid);
+      break;
+    case 66:
+      printf("down\n");
+      move_down(&main_grid, &main_grid);
+      break;
+    case 65:
+      printf("Up\n");
+      move_up(&main_grid, &main_grid);
+      break;
+    }
+    
     move_down(&main_grid, &main_grid);
     put_random_tile(&main_grid, &main_grid);
     print_grid(&main_grid, false);
